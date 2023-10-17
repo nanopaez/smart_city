@@ -22,7 +22,7 @@ class CustomNavBarState extends State<NavBar> {
       onTap: widget.onTap,
       items: const [
         BottomNavigationBarItem(
-          backgroundColor: Colors.black,
+          backgroundColor: Color.fromARGB(255, 251, 118, 118),
           icon: Icon(Icons.home),
           label: 'Inicio',
         ),
