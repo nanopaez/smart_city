@@ -1,6 +1,5 @@
 import 'package:basureros/screens/home.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 
 class Login extends StatelessWidget {
   const Login({super.key});
@@ -24,17 +23,17 @@ class Login extends StatelessWidget {
               children: <Widget>[
                 // Logo
                 SizedBox(
-                  width: 100,
-                  height: 100,
+                  width: 250,
+                  height: 250,
 
                   // Puedes agregar aquí tu imagen de logo
-                  child: SvgPicture.asset(
-                    'lib/assets/images/reloj-de-basura.svg',
+                  child: Image.asset(
+                    'lib/assets/images/reloj-de-basura.png',
                     // ignore: deprecated_member_use
                     color: Colors.white,
                   ),
                 ),
-                const SizedBox(height: 120),
+                const SizedBox(height: 130),
 
                 // Campo de correo
                 TextFormField(
@@ -42,7 +41,8 @@ class Login extends StatelessWidget {
                     labelStyle: TextStyle(color: Colors.white),
                     focusedBorder: UnderlineInputBorder(
                       borderSide: BorderSide(
-                          color: Colors.blue), // Color del texto de sugerencia
+                          color: Color.fromARGB(255, 255, 255,
+                              255)), // Color del texto de sugerencia
                     ),
                     labelText: 'Correo Electrónico',
                   ),
@@ -54,6 +54,11 @@ class Login extends StatelessWidget {
                 // Campo de contraseña
                 TextFormField(
                   decoration: const InputDecoration(
+                    labelStyle: TextStyle(color: Colors.white),
+                    focusedBorder: UnderlineInputBorder(
+                      borderSide:
+                          BorderSide(color: Color.fromARGB(255, 255, 255, 255)),
+                    ),
                     labelText: 'Contraseña',
                   ),
                   style: const TextStyle(color: Colors.white), // Color blanco
