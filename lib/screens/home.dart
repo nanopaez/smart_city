@@ -18,8 +18,7 @@ class HomeScreenState extends State<HomeScreen> {
     {'name': 'Papel', 'icon': Icons.description},
     {'name': 'Plástico', 'icon': Icons.local_offer},
     {'name': 'Vidrio', 'icon': Icons.panorama_fish_eye},
-    {'name': 'Metal', 'icon': Icons.track_changes},
-    {'name': 'Orgánico', 'icon': Icons.eco},
+
     // Agrega más tipos de basura según tus necesidades
   ];
 
@@ -30,61 +29,68 @@ class HomeScreenState extends State<HomeScreen> {
       body: Column(
         children: [
           Container(
-            padding: const EdgeInsets.all(16.0),
+            padding: const EdgeInsets.all(10.0),
             child: Column(
               children: [
-                const Text(
-                  'Instrucciones:',
-                  style: TextStyle(
-                    fontSize: 18,
-                    fontWeight: FontWeight.bold,
-                  ),
-                ),
-                const SizedBox(height: 8),
+                const SizedBox(height: 2),
                 Image.asset(
                     'lib/assets/images/instrucciones.png'), // Reemplaza con la ruta de tu imagen
               ],
             ),
           ),
+          const Text(
+            'Selecciona el tipo de Basura',
+            style: TextStyle(
+              fontSize: 18,
+              fontWeight: FontWeight.bold,
+            ),
+          ),
           Expanded(
             child: GridView.count(
-              crossAxisCount: 2,
+              crossAxisCount: 3,
+              childAspectRatio: 0.8,
               children: basuraTypes.map((type) {
                 bool isSelected = selectedTypes.contains(type['name']);
-                return Card(
-                  child: InkWell(
-                    onTap: () {
-                      setState(() {
-                        if (isSelected) {
-                          selectedTypes.remove(type['name']);
-                        } else {
-                          selectedTypes.add(type['name']);
-                        }
-                      });
-                    },
-                    child: GridTile(
-                      footer: GridTileBar(
-                        backgroundColor: Colors.transparent,
-                        title: Text(
-                          isSelected ? 'Seleccionado' : 'No seleccionado',
-                          style: TextStyle(
-                            color: isSelected ? Colors.green : Colors.grey,
+                return Padding(
+                  padding: const EdgeInsets.all(18.0),
+                  child: Card(
+                    child: InkWell(
+                      onTap: () {
+                        setState(() {
+                          if (isSelected) {
+                            selectedTypes.remove(type['name']);
+                          } else {
+                            selectedTypes.add(type['name']);
+                          }
+                        });
+                      },
+                      child: GridTile(
+                        footer: GridTileBar(
+                          backgroundColor: Colors.transparent,
+                          title: Text(
+                            isSelected ? '' : '',
+                            style: TextStyle(
+                              color: isSelected ? Colors.green : Colors.grey,
+                            ),
                           ),
+                          trailing: isSelected
+                              ? const Icon(
+                                  Icons.check,
+                                  color: Colors.green,
+                                )
+                              : null,
                         ),
-                        trailing: isSelected
-                            ? const Icon(
-                                Icons.check,
-                                color: Colors.green,
-                              )
-                            : null,
-                      ),
-                      child: Center(
-                        child: Column(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            Icon(type['icon']), // Icono
-                            Text(type['name']), // Texto
-                          ],
+                        child: Center(
+                          child: Column(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              Icon(type['icon'], size: 40), // Icono
+                              Text(
+                                type['name'],
+                                style: const TextStyle(fontSize: 16),
+                              ), // Texto
+                            ],
+                          ),
                         ),
                       ),
                     ),
