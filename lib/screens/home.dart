@@ -18,8 +18,7 @@ class HomeScreenState extends State<HomeScreen> {
     {'name': 'Papel', 'icon': Icons.description},
     {'name': 'Plástico', 'icon': Icons.local_offer},
     {'name': 'Vidrio', 'icon': Icons.panorama_fish_eye},
-    {'name': 'Metal', 'icon': Icons.track_changes},
-    {'name': 'Orgánico', 'icon': Icons.eco},
+
     // Agrega más tipos de basura según tus necesidades
   ];
 
@@ -34,7 +33,7 @@ class HomeScreenState extends State<HomeScreen> {
             child: Column(
               children: [
                 const Text(
-                  'Instrucciones:',
+                  'Instrucciones ss:',
                   style: TextStyle(
                     fontSize: 18,
                     fontWeight: FontWeight.bold,
