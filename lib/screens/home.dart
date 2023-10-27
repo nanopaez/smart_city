@@ -33,7 +33,7 @@ class HomeScreenState extends State<HomeScreen> {
             child: Column(
               children: [
                 const Text(
-                  'Instrucciones ss:',
+                  'Instrucciones cambio prueba:',
                   style: TextStyle(
                     fontSize: 18,
                     fontWeight: FontWeight.bold,
